@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0b10">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Compartilhe sua tela em tempo real, P2P e com criptografia de ponta a ponta.">
+  <title>Janela</title>
+  <link rel="icon" href="/img/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body data-view="home">
+
+<svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-logo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b7bff"/><stop offset="1" stop-color="#4fc3ff"/>
+    </linearGradient>
+  </defs>
+  <symbol id="i-logo" viewBox="0 0 32 32">
+    <rect x="1.5" y="1.5" width="29" height="29" rx="9" fill="url(#g-logo)"/>
+    <rect x="7.5" y="9" width="17" height="12" rx="2.6" fill="none" stroke="#fff" stroke-width="2.2"/>
+    <path d="M12.5 25h7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="m14.4 12.6 4.4 2.4-4.4 2.4z" fill="#fff"/>
+  </symbol>
+  <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-shield-alert" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-maximize" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M16 21h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="i-minimize" viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3M21 8h-3a2 2 0 0 1-2-2V3M16 21v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="i-volume-x" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m22 9-6 6M16 9l6 6"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m6 3 14 9-14 9V3z"/></symbol>
+    <symbol id="i-switch" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2.5"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v.01M14 21h.01M17 21h4v-4"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-pip" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><rect x="12" y="11" width="7" height="6" rx="1"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  </g>
+</svg>
+
+<!-- ============================== INÍCIO ============================== -->
+<main id="view-home" class="view home">
+  <div class="home-inner">
+    <header class="brand">
+      <svg class="logo"><use href="#i-logo"/></svg>
+      <span>Janela</span>
+    </header>
+
+    <h1>Compartilhe sua tela<br><span class="grad">em tempo real.</span></h1>
+    <p class="lead">Até 1440p a 60 fps, direto entre os dispositivos, com criptografia de ponta a ponta e verificação por código.</p>
+
+    <label class="field name-field">
+      <span>Seu nome</span>
+      <input id="home-name" maxlength="32" placeholder="Como os outros vão te ver" autocomplete="nickname">
+    </label>
+
+    <div class="choice">
+      <article class="card choice-card">
+        <div class="choice-icon"><svg class="ic"><use href="#i-monitor"/></svg></div>
+        <h2>Transmitir</h2>
+        <p>Escolha uma tela, janela ou aba e convide alguém.</p>
+        <button class="btn primary lg" id="btn-host" type="button">Começar a transmitir</button>
+        <p class="note" id="host-unsupported" hidden></p>
+      </article>
+      <article class="card choice-card">
+        <div class="choice-icon alt"><svg class="ic"><use href="#i-eye"/></svg></div>
+        <h2>Assistir</h2>
+        <p>Digite o código que você recebeu.</p>
+        <form id="form-join" class="join-row" autocomplete="off">
+          <input id="join-code" class="code-input" maxlength="7" placeholder="ABC-123" aria-label="Código da sala"
+                 autocapitalize="characters" spellcheck="false" enterkeyhint="go">
+          <button class="btn primary lg" type="submit">Entrar</button>
+        </form>
+      </article>
+    </div>
+
+    <footer class="trust">
+      <span><svg class="ic"><use href="#i-lock"/></svg>Criptografia ponta a ponta</span>
+      <span><svg class="ic"><use href="#i-shield-check"/></svg>Verificação anti-interceptação</span>
+      <span><svg class="ic"><use href="#i-zap"/></svg>Conexão direta P2P</span>
+      <button class="link-btn" type="button" data-open-security>Como funciona?</button>
+    </footer>
+  </div>
+</main>
+
+<!-- ============================== TRANSMITIR ============================== -->
+<section id="view-host" class="view host" hidden>
+  <header class="topbar">
+    <div class="brand small"><svg class="logo"><use href="#i-logo"/></svg><span>Janela</span></div>
+    <div class="live-pill" id="host-live" hidden><span class="live-dot"></span><span id="host-live-text">AO VIVO</span><span class="timer" id="host-timer">00:00</span></div>
+    <div class="spacer"></div>
+    <button class="btn ghost" id="host-switch" type="button" hidden><svg class="ic"><use href="#i-switch"/></svg><span>Trocar tela</span></button>
+    <button class="btn ghost" id="host-pause" type="button" hidden></button>
+    <button class="btn danger" id="host-end" type="button"><svg class="ic"><use href="#i-stop"/></svg><span>Encerrar</span></button>
+  </header>
+
+  <div class="host-layout">
+    <div class="stage" id="host-stage">
+      <video id="host-preview" autoplay muted playsinline hidden></video>
+      <div class="stage-empty" id="host-empty">
+        <div class="empty-icon"><svg class="ic"><use href="#i-monitor"/></svg></div>
+        <h2>O que você quer compartilhar?</h2>
+        <p>Ajuste a qualidade ao lado e escolha uma tela, janela ou aba.<br>O convite aparece logo em seguida.</p>
+        <button class="btn primary lg" id="host-capture" type="button"><svg class="ic"><use href="#i-monitor"/></svg><span>Escolher tela</span></button>
+      </div>
+      <div class="stage-badges" id="host-badges" hidden></div>
+      <div class="stage-overlay" id="host-overlay" hidden>
+        <h3 id="host-overlay-title"></h3>
+        <p id="host-overlay-text"></p>
+        <button class="btn primary" id="host-overlay-btn" type="button"></button>
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <div id="requests" class="requests" aria-live="polite"></div>
+
+      <section class="card" id="invite-card" hidden>
+        <div class="card-head">
+          <h3>Convite</h3>
+          <button class="btn sm ghost" id="qr-toggle" type="button" aria-pressed="false"><svg class="ic"><use href="#i-qr"/></svg><span>QR code</span></button>
+        </div>
+        <button class="room-code" id="room-code" type="button" title="Clique para copiar o código"></button>
+        <div class="tabs" id="link-tabs" role="tablist"></div>
+        <div class="link-row">
+          <input id="invite-link" readonly aria-label="Link do convite">
+          <button class="btn icon" id="copy-link" type="button" title="Copiar link"><svg class="ic"><use href="#i-copy"/></svg></button>
+        </div>
+        <p class="hint" id="link-hint"></p>
+        <img id="invite-qr" class="qr" alt="QR code do convite" hidden>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h3>Qualidade</h3>
+          <span class="chip" id="q-estimate"></span>
+        </div>
+        <div class="setting">
+          <label>Resolução</label>
+          <div class="seg" id="seg-res" role="radiogroup" aria-label="Resolução"></div>
+        </div>
+        <div class="setting">
+          <label>Taxa de quadros</label>
+          <div class="seg" id="seg-fps" role="radiogroup" aria-label="Taxa de quadros"></div>
+        </div>
+        <div class="setting">
+          <label>Otimizar para</label>
+          <div class="seg" id="seg-mode" role="radiogroup" aria-label="Otimizar para"></div>
+          <p class="hint" id="q-mode-hint"></p>
+        </div>
+        <details class="advanced">
+          <summary>Avançado</summary>
+          <div class="setting row">
+            <label for="sel-codec">Codec de vídeo</label>
+            <select id="sel-codec"></select>
+          </div>
+        </details>
+        <div class="toggles">
+          <label class="toggle"><input type="checkbox" id="opt-audio"><span class="switch"></span><span>Compartilhar áudio do sistema</span></label>
+          <label class="toggle"><input type="checkbox" id="opt-verify"><span class="switch"></span><span>Só liberar a tela após conferir o código</span></label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h3>Espectadores</h3>
+          <span class="chip" id="viewer-count">0</span>
+        </div>
+        <ul class="viewer-list" id="viewer-list"></ul>
+        <p class="empty-text" id="viewers-empty">Ninguém ainda. Envie o link ou o código.</p>
+      </section>
+
+      <button class="link-btn center" type="button" data-open-security><svg class="ic"><use href="#i-shield-check"/></svg>Como a integridade é garantida?</button>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================== ASSISTIR ============================== -->
+<section id="view-viewer" class="view viewer" hidden>
+  <div class="join-screen" id="viewer-join">
+    <div class="card join-card">
+      <div class="brand"><svg class="logo"><use href="#i-logo"/></svg><span>Janela</span></div>
+      <div id="vj-form-wrap">
+        <h2>Entrar na transmissão</h2>
+        <form id="vj-form" autocomplete="off">
+          <label class="field"><span>Código da sala</span>
+            <input id="vj-code" class="code-input" maxlength="7" placeholder="ABC-123" autocapitalize="characters" spellcheck="false">
+          </label>
+          <label class="field"><span>Seu nome</span>
+            <input id="vj-name" maxlength="32" placeholder="Como vão te ver" autocomplete="nickname" enterkeyhint="go">
+          </label>
+          <button class="btn primary lg block" type="submit">Entrar</button>
+        </form>
+        <button class="link-btn center" id="vj-back" type="button"><svg class="ic"><use href="#i-arrow-left"/></svg>Voltar</button>
+      </div>
+      <div id="vj-status" class="status-block" hidden>
+        <div class="spinner"></div>
+        <h2 id="vj-status-title"></h2>
+        <p id="vj-status-text"></p>
+        <button class="btn ghost" id="vj-cancel" type="button">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="watch" id="viewer-watch" hidden>
+    <video id="viewer-video" autoplay playsinline></video>
+
+    <div class="watch-state" id="watch-state">
+      <div class="state-icon" id="watch-state-icon"></div>
+      <h3 id="watch-state-title"></h3>
+      <p id="watch-state-text"></p>
+    </div>
+
+    <header class="watch-top">
+      <div class="watch-title"><span class="live-dot"></span><span id="watch-host"></span></div>
+      <span class="chip" id="watch-quality" hidden></span>
+      <div class="spacer"></div>
+      <button class="chip sec" id="watch-sec" type="button"></button>
+    </header>
+
+    <button class="unmute-hint" id="unmute-hint" type="button" hidden><svg class="ic"><use href="#i-volume-x"/></svg>Toque para ativar o som</button>
+
+    <div class="verify-sheet card" id="verify-sheet" hidden>
+      <div class="verify-head">
+        <div class="verify-icon"><svg class="ic"><use href="#i-shield-check"/></svg></div>
+        <div>
+          <h3>Confirme o código de segurança</h3>
+          <p>Compare com <b id="vs-host"></b> por ligação ou mensagem. Os dois precisam ver exatamente o mesmo número.</p>
+        </div>
+      </div>
+      <div class="sas" id="viewer-sas"></div>
+      <div class="verify-actions" id="vs-actions">
+        <button class="btn danger-ghost" id="vs-no" type="button">Não confere</button>
+        <button class="btn success" id="vs-yes" type="button"><svg class="ic"><use href="#i-check"/></svg><span>Confere</span></button>
+      </div>
+      <p class="verify-status" id="vs-status" hidden></p>
+      <button class="link-btn center" id="vs-hide" type="button" hidden>Verificar depois</button>
+    </div>
+
+    <aside class="stats-panel card" id="viewer-stats" hidden>
+      <div class="card-head"><h3>Detalhes da conexão</h3><button class="link-btn" type="button" data-open-security>O que isso garante?</button></div>
+      <dl id="viewer-stats-body"></dl>
+    </aside>
+
+    <footer class="watch-controls">
+      <button class="ctl" id="wc-audio" type="button"></button>
+      <input type="range" id="wc-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+      <div class="spacer"></div>
+      <button class="ctl" id="wc-stats" type="button" title="Detalhes da conexão"><svg class="ic"><use href="#i-activity"/></svg></button>
+      <button class="ctl" id="wc-pip" type="button" title="Picture-in-picture"><svg class="ic"><use href="#i-pip"/></svg></button>
+      <button class="ctl" id="wc-fs" type="button"></button>
+      <button class="ctl danger" id="wc-leave" type="button" title="Sair"><svg class="ic"><use href="#i-logout"/></svg></button>
+    </footer>
+  </div>
+
+  <div class="join-screen" id="viewer-ended" hidden>
+    <div class="card join-card center">
+      <div class="ended-icon" id="ve-icon"></div>
+      <h2 id="ve-title"></h2>
+      <p id="ve-text"></p>
+      <div class="ended-actions">
+        <button class="btn ghost" id="ve-retry" type="button">Tentar novamente</button>
+        <button class="btn primary" id="ve-home" type="button">Voltar ao início</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SEGURANÇA ============================== -->
+<dialog id="dlg-security" class="dialog">
+  <div class="dialog-body">
+    <div class="card-head">
+      <h2>Como a integridade é garantida</h2>
+      <button class="btn icon ghost" id="dlg-close" type="button" title="Fechar"><svg class="ic"><use href="#i-x"/></svg></button>
+    </div>
+    <ol class="guarantees">
+      <li>
+        <svg class="ic"><use href="#i-lock"/></svg>
+        <div><b>Criptografia de ponta a ponta</b>
+        <p>Vídeo, áudio e mensagens de controle trafegam direto entre os dois aparelhos, cifrados com DTLS-SRTP (AES). O servidor só apresenta um lado ao outro e nunca vê o conteúdo.</p></div>
+      </li>
+      <li>
+        <svg class="ic"><use href="#i-check"/></svg>
+        <div><b>Cada pacote é autenticado</b>
+        <p>Todo pacote de vídeo e áudio leva uma assinatura criptográfica (HMAC/GCM). Se alguém alterar um único bit no caminho, o pacote é descartado. O que chega é exatamente o que foi enviado. Os pacotes perdidos pela rede são pedidos de novo e aparecem nas estatísticas.</p></div>
+      </li>
+      <li>
+        <svg class="ic"><use href="#i-shield-check"/></svg>
+        <div><b>Código de segurança (anti-interceptação)</b>
+        <p>Os dois lados calculam um código de 6 dígitos a partir das chaves que estão realmente em uso. Se alguém, inclusive o próprio servidor, tentasse ficar no meio, os códigos seriam diferentes. Quem transmite se compromete com a própria chave antes de ver a do outro, então não dá para "fabricar" um código igual: cada tentativa tem 1 chance em 1.000.000.</p></div>
+      </li>
+      <li>
+        <svg class="ic"><use href="#i-eye"/></svg>
+        <div><b>Nada é exibido antes da confirmação</b>
+        <p>Com a opção “Só liberar a tela após conferir o código” (ativada por padrão), nenhuma imagem sai do seu computador até você confirmar o código. As confirmações viajam dentro do canal criptografado e não podem ser forjadas.</p></div>
+      </li>
+    </ol>
+  </div>
+</dialog>
+
+<div id="toasts" class="toasts" aria-live="polite"></div>
+</body>
+</html>
