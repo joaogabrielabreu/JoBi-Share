@@ -52,7 +52,7 @@ CSP = (
     "connect-src 'self' ws: wss:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"
 )
 
-# O registro do Windows às vezes mapeia .js como text/plain, o que quebra módulos ES.
+# O registro do Windows às vezes mapeia .js como text/plain, o que quebra os módulos ES kkkkk
 mimetypes.add_type("text/javascript", ".js")
 mimetypes.add_type("text/css", ".css")
 mimetypes.add_type("image/svg+xml", ".svg")
@@ -62,7 +62,7 @@ log = logging.getLogger("janela")
 
 
 # --------------------------------------------------------------------------- #
-# Salas
+# Classes das Salas
 # --------------------------------------------------------------------------- #
 
 
@@ -284,7 +284,7 @@ class Hub:
 
 
 # --------------------------------------------------------------------------- #
-# HTTP
+# HTTP requests blabla
 # --------------------------------------------------------------------------- #
 
 
@@ -365,7 +365,7 @@ async def security_headers(request: web.Request, handler):
 
 
 # --------------------------------------------------------------------------- #
-# Túnel público (Cloudflare Quick Tunnel — gratuito, sem conta)
+# Túnel público (Cloudflare Quick Tunnel — gratuito, sem conta, mais facil p qualquer um usar)
 # --------------------------------------------------------------------------- #
 
 
