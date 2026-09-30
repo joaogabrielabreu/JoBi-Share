@@ -1,4 +1,4 @@
-# Janela: compartilhamento de tela P2P
+# JoBi compartilhamento de tela P2P
 
 Compartilhe a tela do PC em tempo real com qualquer pessoa, no celular ou no PC.
 Basta ter um navegador, sem instalar nada do lado de quem assiste.
