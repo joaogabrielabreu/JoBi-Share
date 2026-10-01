@@ -1,10 +1,10 @@
 {
-  "name": "Janela — compartilhamento de tela",
-  "short_name": "Janela",
+  "name": "JoBi Share — compartilhamento de tela",
+  "short_name": "JoBi Share",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0b10",
-  "theme_color": "#0a0b10",
+  "background_color": "#0b0405",
+  "theme_color": "#0b0405",
   "icons": [
     { "src": "/img/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]

@@ -20,7 +20,7 @@ function goHome() {
   session?.destroy?.();
   session = null;
   history.replaceState(null, '', '/');
-  document.title = 'Janela';
+  document.title = 'JoBi Share';
   show('home');
 }
 
@@ -45,8 +45,8 @@ async function startViewer(code, autoJoin, name = currentName()) {
 
 function setupHome() {
   const nameInput = $('#home-name');
-  nameInput.value = store.get('janela.name', '');
-  nameInput.addEventListener('input', () => store.set('janela.name', nameInput.value.trim()));
+  nameInput.value = store.get('jobi-share.name', '');
+  nameInput.addEventListener('input', () => store.set('jobi-share.name', nameInput.value.trim()));
 
   const canCapture = !!navigator.mediaDevices?.getDisplayMedia && window.isSecureContext;
   const hostBtn = $('#btn-host');
@@ -55,7 +55,7 @@ function setupHome() {
     const note = $('#host-unsupported');
     note.hidden = false;
     note.textContent = !window.isSecureContext
-      ? `Para transmitir, abra http://localhost:${location.port || 80} no computador que roda o Janela.`
+      ? `Para transmitir, abra http://localhost:${location.port || 80} no computador que roda o JoBi Share.`
       : 'Este navegador não permite capturar a tela (celulares não suportam). Use Chrome, Edge ou Firefox no computador.';
   }
   hostBtn.addEventListener('click', startHost);
@@ -90,5 +90,5 @@ setupSecurityDialog();
 getConfig(); // pré-carrega
 
 const code = normalizeCode(new URLSearchParams(location.search).get('s'));
-if (code) startViewer(code, false, store.get('janela.name', ''));
+if (code) startViewer(code, false, store.get('jobi-share.name', ''));
 else show('home');

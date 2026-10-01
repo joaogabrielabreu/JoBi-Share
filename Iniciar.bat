@@ -1,5 +1,5 @@
 @echo off
-rem Janela - inicia o servidor com link publico (internet) + rede local.
+rem JoBi Share - inicia o servidor com link publico (internet) + rede local.
 chcp 65001 >nul
 cd /d "%~dp0"
 call "%~dp0scripts\setup.bat" || goto :fail

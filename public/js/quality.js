@@ -20,7 +20,7 @@ const CODEC_NAMES = { 'video/AV1': 'AV1', 'video/VP9': 'VP9', 'video/H264': 'H.2
 export const DEFAULT_QUALITY = { res: '1080', fps: 30, mode: 'motion', codec: 'auto' };
 
 export function loadQuality() {
-  const saved = store.get('janela.quality', {});
+  const saved = store.get('jobi-share.quality', {});
   const q = { ...DEFAULT_QUALITY, ...saved };
   if (!RESOLUTIONS.some((r) => r.id === q.res)) q.res = DEFAULT_QUALITY.res;
   if (!FRAMERATES.includes(q.fps)) q.fps = DEFAULT_QUALITY.fps;
@@ -28,7 +28,7 @@ export function loadQuality() {
   return q;
 }
 
-export const saveQuality = (q) => store.set('janela.quality', q);
+export const saveQuality = (q) => store.set('jobi-share.quality', q);
 
 // Dimensões finais e fator de escala a partir do tamanho real da captura.
 export function target(q, srcW, srcH) {

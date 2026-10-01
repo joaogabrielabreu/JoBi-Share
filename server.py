@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Janela — servidor de sinalização (WebSocket) e arquivos estáticos.
+"""JoBi Share — servidor de sinalização (WebSocket) e arquivos estáticos.
 
 O servidor apenas apresenta os dois lados um ao outro. O vídeo e o áudio
 trafegam direto entre os navegadores (WebRTC, DTLS-SRTP) e o servidor
@@ -58,7 +58,7 @@ mimetypes.add_type("text/css", ".css")
 mimetypes.add_type("image/svg+xml", ".svg")
 mimetypes.add_type("application/manifest+json", ".webmanifest")
 
-log = logging.getLogger("janela")
+log = logging.getLogger("jobi-share")
 
 
 # --------------------------------------------------------------------------- #
@@ -494,8 +494,8 @@ def build_app(state: State, public: bool) -> web.Application:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Janela — compartilhamento de tela P2P")
-    parser.add_argument("--port", type=int, default=int(os.environ.get("JANELA_PORT", 8420)))
+    parser = argparse.ArgumentParser(description="JoBi Share — compartilhamento de tela P2P")
+    parser.add_argument("--port", type=int, default=int(os.environ.get("JOBI_SHARE_PORT", 8420)))
     parser.add_argument("--bind", default="0.0.0.0", help="interface de escuta (padrão: todas)")
     parser.add_argument("--public", action="store_true", help="cria um link público via Cloudflare Tunnel")
     parser.add_argument("--no-browser", action="store_true", help="não abrir o navegador")
@@ -507,7 +507,7 @@ def main() -> None:
     lan = f"http://{lan_ip()}:{args.port}"
     local = f"http://localhost:{args.port}"
     print("\n  ┌─────────────────────────────────────────────┐")
-    print("  │  Janela — compartilhamento de tela          │")
+    print("  │  JoBi Share — compartilhamento de tela      │")
     print("  └─────────────────────────────────────────────┘")
     state = State(port=args.port, ice_servers=load_ice_servers(), lan_url=lan)
     app = build_app(state, args.public)

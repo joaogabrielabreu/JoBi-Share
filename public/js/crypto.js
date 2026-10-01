@@ -12,8 +12,8 @@
 
 const enc = new TextEncoder();
 
-const COMMIT_TAG = 'janela/commit/v1|';
-const SAS_TAG = 'janela/sas/v1|';
+const COMMIT_TAG = 'jobi-share/commit/v1|';
+const SAS_TAG = 'jobi-share/sas/v1|';
 
 export async function sha256(text) {
   const data = enc.encode(text);

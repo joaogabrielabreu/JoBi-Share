@@ -1,5 +1,5 @@
 @echo off
-rem Janela - inicia o servidor apenas para a rede local (sem link publico).
+rem JoBi Share - inicia o servidor apenas para a rede local (sem link publico).
 chcp 65001 >nul
 cd /d "%~dp0"
 call "%~dp0scripts\setup.bat" || goto :fail

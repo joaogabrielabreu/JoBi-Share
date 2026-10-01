@@ -170,7 +170,7 @@ export class ViewerSession {
       e.code.focus();
       return;
     }
-    store.set('janela.name', e.name.value.trim());
+    store.set('jobi-share.name', e.name.value.trim());
     history.replaceState(null, '', `/?s=${this.code}`);
 
     // "Destrava" o <video> dentro do clique (iOS/Safari exigem gesto para tocar com som).
@@ -250,7 +250,7 @@ export class ViewerSession {
     e.video.srcObject = this.stream;
     vt.receiver.track.addEventListener('unmute', () => this.tryPlay());
 
-    this.setupDc(pc.createDataChannel('janela', { ordered: true }));
+    this.setupDc(pc.createDataChannel('jobi-share', { ordered: true }));
     pc.onicecandidate = (ev) => {
       if (ev.candidate) this.sig.send({ type: 'signal', data: { kind: 'ice', candidate: ev.candidate.toJSON() } });
     };

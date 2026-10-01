@@ -21,8 +21,8 @@ export class HostSession {
     this.name = name || 'Anfitrião';
     this.onExit = onExit;
     this.quality = Q.loadQuality();
-    this.wantAudio = store.get('janela.audio', true);
-    this.requireVerify = store.get('janela.requireVerify', true);
+    this.wantAudio = store.get('jobi-share.audio', true);
+    this.requireVerify = store.get('jobi-share.requireVerify', true);
     this.sig = null;
     this.room = null;
     this.peers = new Map();
@@ -286,7 +286,7 @@ export class HostSession {
 
   setAudio(on) {
     this.wantAudio = on;
-    store.set('janela.audio', on);
+    store.set('jobi-share.audio', on);
     if (this.audioTrack) {
       this.audioTrack.enabled = on;
       toast(on ? 'Áudio do sistema ativado.' : 'Áudio do sistema silenciado.', { timeout: 2200 });
@@ -298,7 +298,7 @@ export class HostSession {
 
   setRequireVerify(on) {
     this.requireVerify = on;
-    store.set('janela.requireVerify', on);
+    store.set('jobi-share.requireVerify', on);
     if (!on) {
       for (const ctx of this.peers.values()) {
         if (!ctx.released) {
@@ -477,7 +477,7 @@ export class HostSession {
     clearInterval(this.interval);
     this.ac.abort();
     this.el.preview.srcObject = null;
-    document.title = 'Janela';
+    document.title = 'JoBi Share';
     this.onExit();
   }
 
@@ -651,7 +651,7 @@ export class HostSession {
   }
 
   setupDc(ctx, dc) {
-    if (dc.label !== 'janela') return;
+    if (dc.label !== 'jobi-share') return;
     ctx.dc = dc;
     dc.onopen = () => {
       this.sendState(ctx);
@@ -776,7 +776,7 @@ export class HostSession {
     const e = this.el;
     e.viewerCount.textContent = String(this.peers.size);
     e.viewersEmpty.hidden = this.peers.size > 0 || this.requests.size > 0;
-    document.title = this.requests.size ? `(${this.requests.size}) Janela` : 'Janela';
+    document.title = this.requests.size ? `(${this.requests.size}) JoBi Share` : 'JoBi Share';
   }
 
   renderPeer(ctx) {

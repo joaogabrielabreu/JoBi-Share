@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0a0b10">
+  <meta name="theme-color" content="#0b0405">
   <meta name="color-scheme" content="dark">
   <meta name="description" content="Compartilhe sua tela em tempo real, P2P e com criptografia de ponta a ponta.">
-  <title>Janela</title>
+  <title>JoBi Share</title>
   <link rel="icon" href="/img/icon.svg" type="image/svg+xml">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="stylesheet" href="/css/app.css">
@@ -17,11 +17,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true">
   <defs>
     <linearGradient id="g-logo" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#8b7bff"/><stop offset="1" stop-color="#4fc3ff"/>
+      <stop offset="0" stop-color="#ff6b7d"/><stop offset=".55" stop-color="#ef2648"/><stop offset="1" stop-color="#a50d2c"/>
+    </linearGradient>
+    <linearGradient id="g-logo-gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/>
     </linearGradient>
   </defs>
   <symbol id="i-logo" viewBox="0 0 32 32">
     <rect x="1.5" y="1.5" width="29" height="29" rx="9" fill="url(#g-logo)"/>
+    <rect x="1.5" y="1.5" width="29" height="29" rx="9" fill="url(#g-logo-gloss)" stroke="#fff" stroke-opacity=".4"/>
     <rect x="7.5" y="9" width="17" height="12" rx="2.6" fill="none" stroke="#fff" stroke-width="2.2"/>
     <path d="M12.5 25h7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
     <path d="m14.4 12.6 4.4 2.4-4.4 2.4z" fill="#fff"/>
@@ -62,7 +66,7 @@
   <div class="home-inner">
     <header class="brand">
       <svg class="logo"><use href="#i-logo"/></svg>
-      <span>Janela</span>
+      <span>JoBi Share</span>
     </header>
 
     <h1>Compartilhe sua tela<br><span class="grad">em tempo real.</span></h1>
@@ -105,7 +109,7 @@
 <!-- ============================== TRANSMITIR ============================== -->
 <section id="view-host" class="view host" hidden>
   <header class="topbar">
-    <div class="brand small"><svg class="logo"><use href="#i-logo"/></svg><span>Janela</span></div>
+    <div class="brand small"><svg class="logo"><use href="#i-logo"/></svg><span>JoBi Share</span></div>
     <div class="live-pill" id="host-live" hidden><span class="live-dot"></span><span id="host-live-text">AO VIVO</span><span class="timer" id="host-timer">00:00</span></div>
     <div class="spacer"></div>
     <button class="btn ghost" id="host-switch" type="button" hidden><svg class="ic"><use href="#i-switch"/></svg><span>Trocar tela</span></button>
@@ -197,7 +201,7 @@
 <section id="view-viewer" class="view viewer" hidden>
   <div class="join-screen" id="viewer-join">
     <div class="card join-card">
-      <div class="brand"><svg class="logo"><use href="#i-logo"/></svg><span>Janela</span></div>
+      <div class="brand"><svg class="logo"><use href="#i-logo"/></svg><span>JoBi Share</span></div>
       <div id="vj-form-wrap">
         <h2>Entrar na transmissão</h2>
         <form id="vj-form" autocomplete="off">
